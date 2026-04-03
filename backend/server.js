@@ -13,8 +13,10 @@ app.use(cors()); // Allow cross-origin requests from the frontend
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-// Serve static frontend files
-app.use(express.static(path.join(__dirname, '../frontend')));
+// Serve static frontend files safely from the root
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.get('/style.css', (req, res) => res.sendFile(path.join(__dirname, '../style.css')));
+app.get('/script.js', (req, res) => res.sendFile(path.join(__dirname, '../script.js')));
 
 // Database connection
 mongoose.connect(process.env.MONGO_URI)
