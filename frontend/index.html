@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSphere | Event Registration</title>
+    <!-- SEO Best Practices -->
+    <meta name="description" content="Register for TechSphere 2026, the premier technology conference covering AI, Web3, and software engineering.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Event Banner / Heading -->
+        <header class="event-banner">
+            <div class="banner-content">
+                <h1 class="event-title">TechSphere 2026</h1>
+                <p class="event-subtitle">The Future of Technology, Today.</p>
+            </div>
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+        </header>
+
+        <main class="main-content">
+            <!-- Event Details Section -->
+            <section class="event-details">
+                <div class="details-card">
+                    <h2>Event Details</h2>
+                    <div class="detail-item">
+                        <span class="icon">📅</span>
+                        <div>
+                            <strong>Date</strong>
+                            <p>October 15-16, 2026</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">⏰</span>
+                        <div>
+                            <strong>Time</strong>
+                            <p>9:00 AM - 5:00 PM EST</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <strong>Venue</strong>
+                            <p>Grand Convention Center, Silicon Valley</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">ℹ️</span>
+                        <div>
+                            <strong>Description</strong>
+                            <p>Join us for two days of immersive workshops, visionary keynotes, and networking with top-tier innovators at TechSphere. Dive into AI, Web3, and the future of software engineering to build the next generation of digital solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Registration Form Section -->
+            <section class="registration-section">
+                <div class="form-card">
+                    <h2>Register Now</h2>
+                    <form id="registrationForm" novalidate>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Doe">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="jane@example.com">
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="input-group">
+                                <label for="college">College / Organization</label>
+                                <input type="text" id="college" name="college" placeholder="e.g. Global Tech University">
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group" style="grid-column: span 2;">
+                                <label for="department">Department <span class="optional">(Optional)</span></label>
+                                <input type="text" id="department" name="department" placeholder="e.g. Computer Science">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="year">Year of Study</label>
+                                <div class="select-wrapper">
+                                    <select id="year" name="year">
+                                        <option value="" disabled selected>Select Year</option>
+                                        <option value="1">1st Year</option>
+                                        <option value="2">2nd Year</option>
+                                        <option value="3">3rd Year</option>
+                                        <option value="4">4th Year</option>
+                                        <option value="Postgraduate">Postgraduate</option>
+                                        <option value="Professional">Professional / Alumni</option>
+                                    </select>
+                                </div>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="input-group">
+                                <label for="gender">Gender</label>
+                                <div class="select-wrapper">
+                                    <select id="gender" name="gender">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Non-binary">Non-binary</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
+                                    </select>
+                                </div>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group" style="grid-column: span 2;">
+                                <label for="category">Event Category</label>
+                                <div class="select-wrapper">
+                                    <select id="category" name="category">
+                                        <option value="" disabled selected>Select Category</option>
+                                        <option value="Hackathon">Hackathon Participant</option>
+                                        <option value="Workshops">Workshops</option>
+                                        <option value="Conference">Conference Only</option>
+                                        <option value="All-Access">All-Access Pass</option>
+                                    </select>
+                                </div>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" id="resetBtn" class="btn-reset">Cancel</button>
+                            <button type="submit" id="submitBtn" class="btn-submit">Submit Registration</button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message View -->
+                    <div id="successMessage" class="success-message hidden">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Registration Verified!</h3>
+                        <p>Thank you for signing up for TechSphere 2026. Your details have been recorded securely, and you will receive a confirmation email shortly.</p>
+                        <button id="registerAnother" class="btn-outline">Register Another Attendee</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
