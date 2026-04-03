@@ -137,7 +137,7 @@ $(document).ready(function () {
 
             // Send network request using jQuery AJAX
             $.ajax({
-                url: 'http://localhost:3000/register',
+                url: '/register',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
