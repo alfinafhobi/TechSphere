@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
     const form = $('#registrationForm');
     const successView = $('#successMessage');
-    
+
     // Regular Expressions for Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // Basic phone validation (allowing digits, spaces, plus, hyphens, and parenthesis)
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
         clearError(inputElement);
 
-        switch(id) {
+        switch (id) {
             case 'fullName':
                 if (value === '') {
                     showError(inputElement, 'Full Name is required');
@@ -89,26 +89,26 @@ $(document).ready(function() {
     }
 
     // Real-time validation
-    $('input, select').on('input change blur', function() {
+    $('input, select').on('input change blur', function () {
         validateField($(this));
     });
 
     // Reset button functionality
-    $('#resetBtn').on('click', function(e) {
+    $('#resetBtn').on('click', function (e) {
         $('.input-group').removeClass('error');
         $('.error-message').text('');
         // Let the default form reset happen naturally
     });
 
     // Main form submission
-    form.on('submit', function(e) {
+    form.on('submit', function (e) {
         e.preventDefault();
-        
+
         let formIsValid = true;
         const requiredFields = ['fullName', 'email', 'phone', 'college', 'year', 'gender', 'category'];
-        
+
         // Validate all fields
-        requiredFields.forEach(function(id) {
+        requiredFields.forEach(function (id) {
             const input = $('#' + id);
             if (!validateField(input)) {
                 formIsValid = false;
@@ -118,11 +118,11 @@ $(document).ready(function() {
         if (formIsValid) {
             const submitBtn = $('#submitBtn');
             const originalText = submitBtn.text();
-            
+
             // Loading state UX
             submitBtn.html('Processing <span style="display:inline-block; animation: pulse 1s infinite;">...</span>');
             submitBtn.prop('disabled', true);
-            
+
             // Gather form data
             const formData = {
                 fullName: $('#fullName').val().trim(),
@@ -141,22 +141,22 @@ $(document).ready(function() {
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
-                success: function(data) {
+                success: function (data) {
                     if (data.success) {
                         // Hide form and show success message with smooth transition
-                        form.fadeOut(300, function() {
+                        form.fadeOut(300, function () {
                             successView.removeClass('hidden').hide().fadeIn(400);
                         });
                     }
                 },
-                error: function(xhr) {
+                error: function (xhr) {
                     console.error('Error:', xhr);
                     let errorMessage = 'An error occurred during registration. Please try again.';
-                    
+
                     if (xhr.responseJSON && xhr.responseJSON.message) {
                         errorMessage = xhr.responseJSON.message;
                     }
-                    
+
                     // Show error under email if it's a duplicate
                     if (xhr.status === 409) {
                         showError($('#email'), errorMessage);
@@ -166,7 +166,7 @@ $(document).ready(function() {
                         alert('Registration failed: ' + errorMessage);
                     }
                 },
-                complete: function() {
+                complete: function () {
                     // Reset button ready for next time
                     submitBtn.text(originalText);
                     submitBtn.prop('disabled', false);
@@ -183,17 +183,17 @@ $(document).ready(function() {
     });
 
     // Handle "Register Another" button
-    $('#registerAnother').on('click', function() {
+    $('#registerAnother').on('click', function () {
         form[0].reset();
-        
+
         // Remove validations
         $('.input-group').removeClass('error');
-        
+
         // Transition back
-        successView.fadeOut(300, function() {
+        successView.fadeOut(300, function () {
             successView.addClass('hidden');
             form.fadeIn(400);
-            
+
             // Scroll to top of the form smoothly
             $('.registration-section')[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
         });

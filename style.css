@@ -27,7 +27,7 @@
 body {
     background-color: var(--bg-color);
     /* Subtle glowing abstract background */
-    background-image: 
+    background-image:
         radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
@@ -39,7 +39,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 700;
 }
@@ -120,7 +125,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Reusable Card Styles */
-.details-card, .form-card {
+.details-card,
+.form-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 24px;
@@ -130,7 +136,8 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.details-card h2, .form-card h2 {
+.details-card h2,
+.form-card h2 {
     font-size: 1.8rem;
     margin-bottom: 2.5rem;
     position: relative;
@@ -138,7 +145,8 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-.details-card h2::after, .form-card h2::after {
+.details-card h2::after,
+.form-card h2::after {
     content: '';
     position: absolute;
     left: 0;
@@ -167,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.05);
     padding: 0.8rem;
     border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.02);
+    border: 1px solid rgba(255, 255, 255, 0.02);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
-.input-group input, 
+.input-group input,
 .input-group select {
     background: rgba(15, 23, 42, 0.7);
     border: 1px solid var(--card-border);
@@ -249,12 +257,12 @@ select {
     pointer-events: none;
 }
 
-.input-group input:hover, 
+.input-group input:hover,
 .input-group select:hover {
     border-color: rgba(99, 102, 241, 0.5);
 }
 
-.input-group input:focus, 
+.input-group input:focus,
 .input-group select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
@@ -340,8 +348,11 @@ button {
 .btn-submit::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -423,13 +434,25 @@ button {
 
 /* Animations & Responsiveness */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Stagger card load */
-.details-card { animation: fadeIn 0.6s ease-out 0.1s both; }
-.form-card { animation: fadeIn 0.6s ease-out 0.2s both; }
+.details-card {
+    animation: fadeIn 0.6s ease-out 0.1s both;
+}
+
+.form-card {
+    animation: fadeIn 0.6s ease-out 0.2s both;
+}
 
 @media (max-width: 1024px) {
     .main-content {
@@ -441,7 +464,7 @@ button {
     .form-row {
         grid-template-columns: 1fr;
     }
-    
+
     .input-group[style*="grid-column"] {
         grid-column: span 1 !important;
     }
@@ -450,15 +473,17 @@ button {
         padding: 4rem 1.5rem;
     }
 
-    .details-card, .form-card {
+    .details-card,
+    .form-card {
         padding: 2rem 1.5rem;
     }
 
     .form-actions {
         flex-direction: column-reverse;
     }
-    
-    .btn-reset, .btn-submit {
+
+    .btn-reset,
+    .btn-submit {
         width: 100%;
     }
 }
